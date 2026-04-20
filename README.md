@@ -7,12 +7,12 @@ Update this README every week.
 
 ## Student Information
 
-| Field | Value |
-|---|---|
-| Student Name | |
-| GitHub Username | |
-| Project Title | |
-| Chosen AI Approach | |
+| Field              | Value |
+|--------------------|---|
+| Student Name       | Rodrigo Pérez Campesino |
+| GitHub Username    | rperecam |
+| Project Title      | CryptoChain Analyzer Dashboard |
+| Chosen AI Approach | Predictor: Predict the next difficulty adjustment value using a time-series model |
 
 ## Module Tracking
 
@@ -20,7 +20,7 @@ Use one of these values: `Not started`, `In progress`, `Done`
 
 | Module | What it should include | Status |
 |---|---|---|
-| M1 | Proof of Work Monitor | Not started |
+| M1 | Proof of Work Monitor | In progress |
 | M2 | Block Header Analyzer | Not started |
 | M3 | Difficulty History | Not started |
 | M4 | AI Component | Not started |
@@ -29,42 +29,24 @@ Use one of these values: `Not started`, `In progress`, `Done`
 
 Write 3 to 5 short lines about what you have already done.
 
-- 
-- 
-- 
+- Accepted the GitHub Classroom invitation and created the private repository.
+- Updated the README.md with student details and initial project status.
+- Explored the API documentation and wrote the first script to print real Bitcoin data to the console.
 
 ## Next Step
 
 Write the next small step you will do before the next class.
 
-- 
+- Implement the M1 module to show live data about the current state of Bitcoin mining, such as difficulty and estimated hash rate.
 
 ## Main Problem or Blocker
 
 Write here if you are stuck with something.
 
-- 
+- None at the moment; the initial GitHub setup and first API call are functioning correctly.
 
 ## How to Run
 
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
-```
-
-## Project Structure
-
-```text
-template-blockchain-dashboard/
-|-- README.md
-|-- requirements.txt
-|-- .gitignore
-|-- app.py
-|-- api/
-|   `-- blockchain_client.py
-`-- modules/
-    |-- m1_pow_monitor.py
-    |-- m2_block_header.py
-    |-- m3_difficulty_history.py
-    `-- m4_ai_component.py
-```
