@@ -18,27 +18,26 @@ Update this README every week.
 
 Use one of these values: `Not started`, `In progress`, `Done`
 
-| Module | What it should include | Status |
-|---|---|---|
-| M1 | Proof of Work Monitor | Done |
-| M2 | Block Header Analyzer | Not started |
-| M3 | Difficulty History | Not started |
+| Module | What it should include | Status      |
+|---|---|-------------|
+| M1 | Proof of Work Monitor | Done        |
+| M2 | Block Header Analyzer | Done        |
+| M3 | Difficulty History | In progress |
 | M4 | AI Component | Not started |
 
 ## Current Progress
 
 Write 3 to 5 short lines about what you have already done.
 
-- Updated `api/blockchain_client.py` with new helper functions to fetch current difficulty and recent blocks in a single workflow.
-- Improved `modules/m1_pow_monitor.py` with advanced PoW analytics: estimated hash rate, block reward/fees breakdown, and target vs hash visualization.
-- Added statistical analysis in M1 with a histogram of block intervals and a theoretical Poisson distribution overlay.
-- Updated `requirements.txt` to include `fastapi` for upcoming backend/API integration.
+- Implemented `modules/m2_block_header.py` with block header reconstruction in little-endian format, double SHA-256 validation, and a memory map of the 80-byte header.
+- Connected M2 in `app.py` so the dashboard now exposes the Block Header Analyzer as a dedicated tab.
+- Added a local benchmark in M2 to compare CPU hashing performance with Bitcoin mining context.
+- Kept the recent improvements in `api/blockchain_client.py` and M1 as the foundation for the next dashboard modules.
 
 ## Next Step
 
 Write the next small step you will do before the next class.
 
-- Start implementing M2 (Block Header Analyzer) to extend the dashboard with deeper header-level validation metrics.
 
 ## Main Problem or Blocker
 
