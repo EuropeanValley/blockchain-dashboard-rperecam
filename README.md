@@ -20,7 +20,7 @@ Use one of these values: `Not started`, `In progress`, `Done`
 
 | Module | What it should include | Status |
 |---|---|---|
-| M1 | Proof of Work Monitor | In progress |
+| M1 | Proof of Work Monitor | Done |
 | M2 | Block Header Analyzer | Not started |
 | M3 | Difficulty History | Not started |
 | M4 | AI Component | Not started |
@@ -29,15 +29,16 @@ Use one of these values: `Not started`, `In progress`, `Done`
 
 Write 3 to 5 short lines about what you have already done.
 
-- Accepted the GitHub Classroom invitation and created the private repository.
-- Updated the README.md with student details and initial project status.
-- Explored the API documentation and wrote the first script to print real Bitcoin data to the console.
+- Updated `api/blockchain_client.py` with new helper functions to fetch current difficulty and recent blocks in a single workflow.
+- Improved `modules/m1_pow_monitor.py` with advanced PoW analytics: estimated hash rate, block reward/fees breakdown, and target vs hash visualization.
+- Added statistical analysis in M1 with a histogram of block intervals and a theoretical Poisson distribution overlay.
+- Updated `requirements.txt` to include `fastapi` for upcoming backend/API integration.
 
 ## Next Step
 
 Write the next small step you will do before the next class.
 
-- Implement the M1 module to show live data about the current state of Bitcoin mining, such as difficulty and estimated hash rate.
+- Start implementing M2 (Block Header Analyzer) to extend the dashboard with deeper header-level validation metrics.
 
 ## Main Problem or Blocker
 
@@ -50,3 +51,4 @@ Write here if you are stuck with something.
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
+```
