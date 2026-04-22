@@ -9,10 +9,10 @@ Update this README every week.
 
 | Field              | Value |
 |--------------------|---|
-| Student Name       | Rodrigo PÃ©rez Campesino |
+| Student Name       | Rodrigo Perez Campesino |
 | GitHub Username    | rperecam |
 | Project Title      | CryptoChain Analyzer Dashboard |
-| Chosen AI Approach | Predictor: Predict the next difficulty adjustment value using a time-series model |
+| Chosen AI Approach | Time-series predictor to estimate the next Bitcoin difficulty adjustment using recent historical data; output includes predicted value and MAE. |
 
 ## Module Tracking
 
@@ -22,29 +22,24 @@ Use one of these values: `Not started`, `In progress`, `Done`
 |---|---|-------------|
 | M1 | Proof of Work Monitor | Done        |
 | M2 | Block Header Analyzer | Done        |
-| M3 | Difficulty History | In progress |
+| M3 | Difficulty History | Done        |
 | M4 | AI Component | Not started |
 
 ## Current Progress
 
-Write 3 to 5 short lines about what you have already done.
-
-- Implemented `modules/m2_block_header.py` with block header reconstruction in little-endian format, double SHA-256 validation, and a memory map of the 80-byte header.
-- Connected M2 in `app.py` so the dashboard now exposes the Block Header Analyzer as a dedicated tab.
-- Added a local benchmark in M2 to compare CPU hashing performance with Bitcoin mining context.
-- Kept the recent improvements in `api/blockchain_client.py` and M1 as the foundation for the next dashboard modules.
+- Upgraded `api/blockchain_client.py` with helpers for current difficulty, recent blocks, and exact difficulty history with API fallback to local JSON data.
+- Completed M1 in `modules/m1_pow_monitor.py` with live PoW KPIs, reward/fees analysis, target-vs-hash checks, and statistical block interval visualization.
+- Completed M2 in `modules/m2_block_header.py` with 80-byte header reconstruction (little-endian), double SHA-256 verification, and local CPU benchmark.
+- Completed M3 in `modules/m3_difficulty_history.py` with DAA audit charts, epoch timing analysis, and theoretical-vs-real difficulty comparison.
+- Integrated M1-M4 tabs in `app.py` and updated `requirements.txt` to include `fastapi` for upcoming API/backend work.
 
 ## Next Step
 
-Write the next small step you will do before the next class.
-
+- Start M4 by building a baseline AI predictor (time-series or linear regression), show real vs predicted difficulty, and report MAE in the dashboard.
 
 ## Main Problem or Blocker
 
-Write here if you are stuck with something.
-
-- None at the moment; the initial GitHub setup and first API call are functioning correctly.
-
+- Main technical risk is API rate limiting for historical data; fallback loading already works, and the next improvement is adding cache to reduce requests.
 ## How to Run
 
 ```bash
