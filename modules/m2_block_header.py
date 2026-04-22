@@ -47,7 +47,12 @@ def render() -> None:
     if st.session_state.get('header_audited_hash') == block_hash:
         with st.spinner("Ensamblando bytes y calculando hashes..."):
             try:
-                block = get_block(block_hash)
+                # PROTECCIÓN: Capturamos el posible bloqueo de la API al descargar el bloque
+                try:
+                    block = get_block(block_hash)
+                except Exception:
+                    st.warning("⚠️ La API de Blockchain.info ha bloqueado la descarga del bloque temporalmente (Rate Limit). Espera un minuto e inténtalo de nuevo.")
+                    return  # Detenemos la ejecución limpiamente sin lanzar un error rojo
 
                 version = block.get('ver')
                 prev_block = block.get('prev_block')

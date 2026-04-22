@@ -36,11 +36,14 @@ def render() -> None:
                 hash_rate_hashes = (diff_val * (2**32)) / 600
                 hash_rate_ehs = hash_rate_hashes / 1e18
 
-                # 3. Cálculos de Economía (Block Reward)
-                # En 2026, el subsidio por bloque es de 3.125 BTC tras el halving de 2024
-                subsidy_btc = 3.125
+                # 3. Cálculos de Economía (Block Reward Dinámico)
+                # El subsidio se reduce a la mitad cada 210,000 bloques. Empezó en 50 BTC.
+                block_height = latest_block.get('height', 0)
+                halvings = block_height // 210000
+                subsidy_btc = 50 / (2 ** halvings)
+
                 fee_satoshis = latest_block.get("fee", 0)
-                fee_btc = fee_satoshis / 10**8
+                fee_btc = fee_satoshis / 10 ** 8
                 total_reward_btc = subsidy_btc + fee_btc
 
                 # --- RENDERIZADO DE LA INTERFAZ ---
@@ -121,8 +124,8 @@ def render() -> None:
                         legend=dict(yanchor="top", y=0.99, xanchor="right", x=0.99)
                     )
 
-                    st.plotly_chart(fig, use_container_width=True)
-                    st.caption("La línea roja representa un Proceso de Poisson teórico ($f(x) = \lambda e^{-\lambda x}$), evidenciando que la minería carece de memoria.")
+                    st.plotly_chart(fig, width='stretch')
+                    st.caption(r"La línea roja representa un Proceso de Poisson teórico ($f(x) = \lambda e^{-\lambda x}$), evidenciando que la minería carece de memoria.")
 
             except Exception as exc:
                 st.error(f"Error procesando la arquitectura de datos: {exc}")
