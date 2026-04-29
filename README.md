@@ -24,6 +24,7 @@ Use one of these values: `Not started`, `In progress`, `Done`
 | M2 | Block Header Analyzer | Done        |
 | M3 | Difficulty History | Done        |
 | M4 | AI Component | Done        |
+| M6 | Security Score | Done        |
 
 ## Current Progress
 
@@ -31,30 +32,14 @@ Use one of these values: `Not started`, `In progress`, `Done`
 - Completed M1 in `modules/m1_pow_monitor.py` with live PoW KPIs, reward/fees analysis, target-vs-hash checks, and statistical block interval visualization.
 - Completed M2 in `modules/m2_block_header.py` with 80-byte header reconstruction (little-endian), double SHA-256 verification, and local CPU benchmark.
 - Completed M3 in `modules/m3_difficulty_history.py` with DAA audit charts, epoch timing analysis, and theoretical-vs-real difficulty comparison.
-- **Completed M4 in `modules/m4_ai_component.py` and `model/train_model.py`.** Built a Random Forest Regressor to predict difficulty adjustments. Separated offline training (exporting `.joblib` and metrics) from online inference to ensure millisecond load times. The model achieves a highly accurate MAPE of 2.66% by predicting percentage deltas rather than absolute values to avoid overfitting.
+- Completed M4 in `modules/m4_ai_component.py` and `model/train.py` with a Random Forest approach, offline training artifacts (`rf_model.joblib`, `metrics.json`), and online inference for dashboard use.
+- Added M6 in `modules/m6_security_score.py` and integrated it into `app.py` with an economic 51% attack estimator plus Nakamoto success-probability curves by confirmations.
 
 ## Next Step
 
-- Project is fully complete, tested, and ready for final submission and evaluation. 
+- Finalized the README with a comprehensive summary of the project, including the main problem or blocker encountered and how it was resolved.
 
 ## Main Problem or Blocker
 
 - None. The previous technical risk regarding API rate limiting was completely mitigated by implementing a robust local fallback mechanism and decoupling the ML training process from the live dashboard.
 
-<!-- student-repo-auditor:teacher-feedback:start -->
-## Teacher Feedback
-
-### Kick-off Review
-
-Review time: 2026-04-29 20:31 CEST
-Status: Green
-
-Strength:
-- I can see the dashboard structure integrating the checkpoint modules.
-
-Improve now:
-- The checkpoint evidence is strong: the dashboard and core modules are visibly progressing.
-
-Next step:
-- Keep building on this checkpoint and prepare the final AI integration.
-<!-- student-repo-auditor:teacher-feedback:end -->
